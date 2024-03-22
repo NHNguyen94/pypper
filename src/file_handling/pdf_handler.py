@@ -2,10 +2,10 @@ from typing import List, Dict, BinaryIO
 
 from pypdf import PdfReader
 
-from pypper.utils.enums import PDFDocumentConfigs
+from src.utils.enums import PDFDocumentConfigs
 
 
-class PDFReader():
+class PDFHandler():
     """
     A class to read PDF files
     """
@@ -62,7 +62,7 @@ class PDFReader():
 
     def load_single_pdf_file(self,
                              file_path: str,
-                             ) -> List:
+                             ) -> List[Dict]:
         """
         Load the data from a PDF file
         :param file_path: str: The path to the PDF file
