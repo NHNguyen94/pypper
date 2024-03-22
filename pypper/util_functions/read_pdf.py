@@ -1,6 +1,5 @@
 from typing import List, Dict, BinaryIO
 
-import requests
 from pypdf import PdfReader
 
 from pypper.utils.enums import PDFDocumentConfigs
