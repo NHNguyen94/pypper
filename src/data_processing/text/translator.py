@@ -13,23 +13,29 @@ class Translator():
     """
 
     def __init__(self,
-                 from_language: str,
-                 to_language: str,
+                 from_language: Optional[str] = None,
+                 to_language: Optional[str] = None,
                  translator: Optional[str] = None
                  ):
         """
         Initialize the Translator object
-        :param from_language: The language to translate from
-        :param to_language: The language to translate to
+        :param from_language: The language to translate from, if None, the language will be detected automatically
+        :param to_language: The language to translate to, if None, it will be "en"
         :param translator: The translator to use
         """
-        self.from_language = from_language
-        self.to_language = to_language
         self.configs = TranlsationConfigs()
         if translator is None:
             self.translator = TranlsationConfigs().DEFAULT_TRANSLATOR
         else:
             self.translator = translator
+        if from_language is None:
+            self.from_language = TranlsationConfigs().DEFAULT_FROM_LANGUAGE
+        else:
+            self.from_language = from_language
+        if to_language is None:
+            self.to_language = TranlsationConfigs().DEFAULT_TO_LANGUAGE
+        else:
+            self.to_language = to_language
 
     def translate_text(self,
                        text: str,
