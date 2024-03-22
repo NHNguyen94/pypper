@@ -6,7 +6,7 @@ from faster_whisper import WhisperModel
 from src.utils.enums import SpeechProcessingConfigs
 
 
-class SpeechProcessing():
+class SpeechProcessor():
     """
     A class to process speech to text
     """
