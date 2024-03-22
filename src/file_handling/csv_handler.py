@@ -4,6 +4,9 @@ from typing import Dict, List
 
 
 class CSVHandler():
+    """
+    A class to handle CSV files
+    """
     def __init__(self):
         pass
 

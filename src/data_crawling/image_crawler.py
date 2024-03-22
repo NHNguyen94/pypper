@@ -10,6 +10,9 @@ from src.utils.enums import ImageCrawlingConfigs
 
 
 class ImageCrawler(BaseCrawler):
+    """
+    A class to crawl images from urls
+    """
     def __init__(self):
         super().__init__()
         self.csv_handler = CSVHandler()
