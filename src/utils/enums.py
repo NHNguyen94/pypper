@@ -14,5 +14,12 @@ class ImageCrawlingConfigs():
 
 class TranlsationConfigs():
     DEFAULT_TRANSLATOR = "google"
+    DEFAULT_FROM_LANGUAGE = "auto"
+    DEFAULT_TO_LANGUAGE = "en"
     SLEEP_SECOND = 3
     RETURNED_TEXT_IF_FAILED = ""
+
+class SpeechProcessingConfigs():
+    DEFAULT_MODEL = "large-v2"
+    DEFAULT_DEVICE = "cpu"
+    DEFAUL_COMPUTE_TYPE = "fp16"
