@@ -11,3 +11,8 @@ class ImageCrawlingConfigs():
     SLEEP_TIME = 1
     ENDSWITH_CONDITION = (".jpg", ".png", ".jpeg")
     STARTSWITH_CONDITION = ("https", "http")
+
+class TranlsationConfigs():
+    DEFAULT_TRANSLATOR = "google"
+    SLEEP_SECOND = 3
+    RETURNED_TEXT_IF_FAILED = ""
