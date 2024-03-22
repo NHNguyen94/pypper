@@ -23,3 +23,6 @@ class SpeechProcessingConfigs():
     DEFAULT_MODEL = "large-v2"
     DEFAULT_DEVICE = "cpu"
     DEFAUL_COMPUTE_TYPE = "fp16"
+
+class TokenizerConfigs():
+    DEFAULT_ENCODING = "cl100k_base"
