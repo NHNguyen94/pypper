@@ -1,6 +1,6 @@
 from unittest import TestCase
 import pandas as pd
-from src.data_processing.text.translator import Translator
+from src.data_processing.text.translation import Translator
 
 
 class TestTranslator(TestCase):

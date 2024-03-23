@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.file_handling.pdf_handler import PDFHandler
+from src.file_handling.pdf_handling import PDFHandler
 
 
 class TestPDFReader(TestCase):
