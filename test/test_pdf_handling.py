@@ -3,7 +3,7 @@ from unittest import TestCase
 from src.file_handling.pdf_handling import PDFHandler
 
 
-class TestPDFReader(TestCase):
+class TestPDFHander(TestCase):
     def test_load_single_pdf_file(self):
         print("Test function load_single_pdf_file")
         pdf_reader = PDFHandler()

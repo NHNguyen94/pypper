@@ -4,7 +4,7 @@ from typing import List, Tuple, Optional
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-from src.data_crawling.base_crawler import BaseCrawler
+from src.data_crawling.base_crawling import BaseCrawler
 from src.file_handling.csv_handling import CSVHandler
 from src.utils.enums import ImageCrawlingConfigs
 
