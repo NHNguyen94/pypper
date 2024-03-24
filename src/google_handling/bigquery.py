@@ -9,7 +9,6 @@ from google.api_core import retry
 from google.cloud import bigquery
 from google.oauth2.service_account import Credentials
 from include.task_scripts.common_task_handler import *
-from common_task_handler import create_schema_from_yaml
 from six import StringIO
 
 root_path = str(Path(__file__).resolve().parents[2])
