@@ -5,7 +5,8 @@ from io import StringIO
 import ndjson
 from airflow import models
 from gcloud.aio.auth import Token
-from google.cloud import storage
+from gcloud import storage
+# from google.cloud import storage
 from google.oauth2.service_account import Credentials
 from include.task_scripts.common_task_handler import *
 
