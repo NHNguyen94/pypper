@@ -1,6 +1,8 @@
 from unittest import TestCase
-from src.data_processing.datetime.datetime_processing import DateTimeProcessor
+
 import pandas as pd
+
+from src.data_processing.datetime.datetime_processing import DateTimeProcessor
 
 
 class TestDateTimeProcessor(TestCase):
@@ -42,4 +44,3 @@ class TestDateTimeProcessor(TestCase):
         self.assertEqual(df["date_time"][1].hour, 12)
         self.assertEqual(df["date_time"][1].minute, 0)
         self.assertEqual(df["date_time"][1].second, 0)
-

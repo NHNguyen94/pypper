@@ -160,3 +160,4 @@ cython_debug/
 .idea/
 /test/output_for_tests/
 .DS_Store
+test/.DS_Store
