@@ -6,7 +6,7 @@ class JsonDataProcessing:
   def __init__():
         pass
 
-  def _handle_error():
+  def _handle_error(self):
         message = 'Error streaming file. Cause: %s' % (traceback.format_exc())
         print(message)
 

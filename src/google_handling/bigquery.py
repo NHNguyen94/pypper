@@ -9,6 +9,7 @@ from google.api_core import retry
 from google.cloud import bigquery
 from google.oauth2.service_account import Credentials
 from include.task_scripts.common_task_handler import *
+from common_task_handler import create_schema_from_yaml
 from six import StringIO
 
 root_path = str(Path(__file__).resolve().parents[2])
@@ -44,7 +45,7 @@ class BigqueryHandler:
         service_account_info = json.loads(creds_dict['extra__google_cloud_platform__keyfile_dict'])
         return Credentials.from_service_account_info(service_account_info)
 
-    def _handle_error():
+    def _handle_error(self):
         message = 'Error streaming file. Cause: %s' % (traceback.format_exc())
         print(message)
 

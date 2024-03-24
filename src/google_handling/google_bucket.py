@@ -3,9 +3,10 @@ import traceback
 from io import StringIO
 
 import ndjson
+import requests
 from airflow import models
-from gcloud.aio.auth import Token
 from gcloud import storage
+from gcloud.aio.auth import Token
 # from google.cloud import storage
 from google.oauth2.service_account import Credentials
 from include.task_scripts.common_task_handler import *
@@ -35,7 +36,7 @@ class GoogleStorageHandler:
         service_account_info = json.loads(creds_dict['extra__google_cloud_platform__keyfile_dict'])
         return service_account_info
 
-    def _handle_error():
+    def _handle_error(self):
         message = 'Error streaming file. Cause: %s' % (traceback.format_exc())
         print(message)
 
