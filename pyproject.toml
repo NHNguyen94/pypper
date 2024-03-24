@@ -6,7 +6,7 @@ authors = ["nguyen <nguyenhainguyen2606@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.12"
 pandas = "^2.2.1"
 pypdf = "^4.1.0"
 selenium = "^4.18.1"
@@ -19,6 +19,11 @@ pymongo = "<=4.6.1"
 ndjson = "^0.3.1"
 google-cloud-bigquery = "<3.13.0"
 google-cloud-core= "<2.3.3"
+apache-airflow = "^2.8.3"
+google-cloud = "^0.34.0"
+google = "^3.0.0"
+include = "^0.2.2"
+gcloud = "^0.18.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
