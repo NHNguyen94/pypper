@@ -39,3 +39,27 @@ class GoogleStorageHandler:
     def _handle_error():
         message = 'Error streaming file. Cause: %s' % (traceback.format_exc())
         print(message)
+        
+    def pull_data_from_api_to_gcs(api_url, bucket_name, gcs_path):
+        # Call the API
+        headers = {
+            'Authorization': f'Bearer {token}'
+        }
+        response = requests.get(api_url, headers=headers)
+        data = response.json()
+        #stringio_data = data
+        ## instane of the storage client
+        storage_client = storage.Client()
+    
+        ## create the gcs_bucket if not exist
+        # bucket = storage_client.bucket(gcs_bucket_name)
+        # storage_client.create_bucket(gcs_bucket_name,exists_ok=True)
+    
+        ## instance of a bucket in your google cloud storage
+        bucket = storage_client.get_bucket(bucket_name)
+    
+        ## create new file name
+        blob = bucket.blob(f"{gcs_path}/data.json")
+    
+        blob.upload_from_string(ndjson.dumps(data))
+        print(f"Pull data from api of {gcs_path} successfully")
