@@ -28,7 +28,8 @@ class DateTimeProcessor():
 
     def cast_string_to_datetime_in_df(self,
                                       df: pd.DataFrame,
-                                      column: str, datetime_format: str
+                                      datetime_str_col_name: str,
+                                      casted_col_name: str, datetime_format: str
                                       ) -> pd.DataFrame:
-        df[column] = self._vectorized_cast_str_to_datetime(df[column], datetime_format)
+        df[casted_col_name] = self._vectorized_cast_str_to_datetime(df[datetime_str_col_name], datetime_format)
         return df
