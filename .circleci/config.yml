@@ -10,11 +10,19 @@ jobs:
       - image: cimg/python:3.9
     steps:
       - checkout
+#      # Set PYTHONPATH environment variable
+#      - run:
+#          name: Set PYTHONPATH
+#          command: echo "export PYTHONPATH=." >> $BASH_ENV
+#      # Activate Bash environment to make PYTHONPATH available
+#      - run:
+#          name: Activate Bash environment
+#          command: source $BASH_ENV
       - python/install-packages:
           pkg-manager: poetry
       - run:
           name: Run tests
-          command: poetry run pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
+          command: PYTHONPATH=. poetry run pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
       - store_test_results:
           path: junit.xml
   deploy:
