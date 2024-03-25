@@ -4,7 +4,7 @@ from typing import Optional
 import pandas as pd
 import translators as ts
 
-from src.utils.enums import TranlsationConfigs
+from pypper.utils.enums import TranlsationConfigs
 
 
 class Translator():

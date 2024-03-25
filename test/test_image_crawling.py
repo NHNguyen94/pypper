@@ -1,6 +1,6 @@
 # from unittest import TestCase
 #
-# from src.data_crawling.image_crawler import ImageCrawler
+# from pypper.data_crawling.image_crawler import ImageCrawler
 #
 #
 # class TestImageCrawler(TestCase):

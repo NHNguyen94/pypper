@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-from src.data_processing.datetime.datetime_processing import DateTimeProcessor
+from pypper.data_processing.datetime.datetime_processing import DateTimeProcessor
 
 
 class TestDateTimeProcessor(TestCase):

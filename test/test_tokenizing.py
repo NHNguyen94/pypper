@@ -1,7 +1,7 @@
 from typing import List
 from unittest import TestCase
 
-from src.data_processing.nlp.tokenizing import Tokenizer
+from pypper.data_processing.nlp.tokenizing import Tokenizer
 
 
 class TestTokenizer(TestCase):
