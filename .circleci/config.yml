@@ -10,14 +10,6 @@ jobs:
       - image: cimg/python:3.9
     steps:
       - checkout
-#      # Set PYTHONPATH environment variable
-#      - run:
-#          name: Set PYTHONPATH
-#          command: echo "export PYTHONPATH=." >> $BASH_ENV
-#      # Activate Bash environment to make PYTHONPATH available
-#      - run:
-#          name: Activate Bash environment
-#          command: source $BASH_ENV
       - python/install-packages:
           pkg-manager: poetry
       - run:
@@ -38,6 +30,10 @@ workflows:
   build-and-test:
     jobs:
       - test-python
-    # - deploy:
-    #     requires:
-    #       - test-python
+      - deploy:
+          requires:
+            - test-python
+          filters:
+            branches:
+              only:
+                - main
