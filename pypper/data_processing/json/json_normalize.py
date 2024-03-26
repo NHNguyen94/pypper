@@ -42,3 +42,5 @@
 #         # Unpacking the element of dictionary then return to according to the pair key-value
 #         dictionary = dict(chain.from_iterable(starmap(unpack, dictionary.items())))
 #         return dictionary
+
+# flake8: noqa

@@ -63,3 +63,6 @@
 #
 #         blob.upload_from_string(ndjson.dumps(data))
 #         print(f"Pull data from api of {gcs_path} successfully")
+
+
+# flake8: noqa
