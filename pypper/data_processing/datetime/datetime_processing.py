@@ -50,8 +50,7 @@ class DateTimeProcessor():
         :return: datetime object
         """
         func = np.vectorize(self.cast_str_to_datetime)
-        arr = np.vectorize(func)(date_str, datetime_format)
-        return arr
+        return func(date_str, datetime_format)
 
     def cast_string_to_datetime_in_df(self,
                                       df: pd.DataFrame,
