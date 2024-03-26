@@ -19,9 +19,13 @@ class Translator():
                  ):
         """
         Initialize the Translator object
-        :param from_language: The language to translate from, if None, the language will be detected automatically
-        :param to_language: The language to translate to, if None, it will be "en"
-        :param translator: The translator to use
+        :param from_language:
+            The language to translate from,
+            if None, the language will be detected automatically
+        :param to_language:
+            The language to translate to, if None, it will be "en"
+        :param translator:
+            The translator to use
         """
         self.configs = TranlsationConfigs()
         if translator is None:
@@ -44,7 +48,8 @@ class Translator():
         """
         Translate text
         :param text: The text to translate
-        :param returned_text_if_failed: The text to return if the translation fails
+        :param returned_text_if_failed:
+            The text to return if the translation fails
         :return: str: The translated text
         """
         try:
@@ -67,12 +72,18 @@ class Translator():
                         ):
         """
         Translate text in a DataFrame
-        :param df: DataFrame with the column to translate
-        :param column_to_translate: The column to translate
-        :param column_to_store: The column to store the translated text
-        :param stop_index: The index to stop translating
-        :param sleep_second: The time to sleep between translations
-        :param returned_text_if_failed: The text to return if the translation fails
+        :param df:
+            DataFrame with the column to translate
+        :param column_to_translate:
+            The column to translate
+        :param column_to_store:
+            The column to store the translated text
+        :param stop_index:
+            The index to stop translating
+        :param sleep_second:
+            The time to sleep between translations
+        :param returned_text_if_failed:
+            The text to return if the translation fails
         :return:
         """
         if stop_index is None:
@@ -81,9 +92,11 @@ class Translator():
             sleep_second = self.configs.SLEEP_SECOND
         n = 0
         for row in df[column_to_translate]:
-            df[column_to_store] = self.translate_text(text=row,
-                                                      returned_text_if_failed=returned_text_if_failed
-                                                      )
+            df[column_to_store] = \
+                self.translate_text(
+                    text=row,
+                    returned_text_if_failed=returned_text_if_failed
+                )
             n += 1
             time.sleep(sleep_second)
             if n > stop_index:

@@ -5,11 +5,15 @@ class DFProcessor():
     """
     A class to process dataframes
     """
+
     def __init__(self):
         pass
-    
+
     @staticmethod
-    def drop_outliers(df: pd.DataFrame, column: str, threshold: float) -> pd.DataFrame:
+    def drop_outliers(df: pd.DataFrame,
+                      column: str,
+                      threshold: float
+                      ) -> pd.DataFrame:
         """
         Drop outliers in a dataframe.
         :param df: The dataframe.

@@ -47,13 +47,18 @@ class PDFHandler():
         """
         return pdf_reader.page_labels[page_number]
 
-    def _generate_document(self, page_number: int, page_label: str, page_text: str) -> Dict:
+    def _generate_document(self,
+                           page_number: int,
+                           page_label: str,
+                           page_text: str
+                           ) -> Dict:
         """
         Generate a document
         :param page_number: int: The page number
         :param page_label: str: The page label
         :param page_text: str: The page text
-        :return: Dict: A dictionary containing the page number, page label, and page text
+        :return: Dict:
+            A dictionary containing the page number, page label, and page text
         """
         return {self.configs.PAGE: page_number,
                 self.configs.PAGE_LABEL: page_label,
@@ -66,7 +71,9 @@ class PDFHandler():
         """
         Load the data from a PDF file
         :param file_path: str: The path to the PDF file
-        :return: List[Dict]: A list of dictionaries containing the page number, page label, and page text
+        :return: List[Dict]: A list of dictionaries containing the page number,
+        page label,
+        and page text
         """
         with open(file_path, "rb") as file:
             pdf = self._create_pdf_object(file)

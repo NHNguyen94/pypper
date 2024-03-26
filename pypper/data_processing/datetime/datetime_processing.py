@@ -29,7 +29,9 @@ class DateTimeProcessor():
         current_timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         return current_timestamp
 
-    def cast_str_to_datetime(self, date_str: str, datetime_format: str) -> datetime:
+    def cast_str_to_datetime(self,
+                             date_str: str,
+                             datetime_format: str) -> datetime:
         """
         Cast a string to a datetime object
         :param date_str: datetime string to cast
@@ -47,12 +49,15 @@ class DateTimeProcessor():
         :param datetime_format: datetime format
         :return: datetime object
         """
-        return np.vectorize(self.cast_str_to_datetime)(date_str, datetime_format)
+        func = np.vectorize(self.cast_str_to_datetime)
+        arr = np.vectorize(func)(date_str, datetime_format)
+        return arr
 
     def cast_string_to_datetime_in_df(self,
                                       df: pd.DataFrame,
                                       datetime_str_col_name: str,
-                                      casted_col_name: str, datetime_format: str
+                                      casted_col_name: str,
+                                      datetime_format: str
                                       ) -> pd.DataFrame:
         """
         Cast a string column to a datetime column in a dataframe
@@ -62,5 +67,7 @@ class DateTimeProcessor():
         :param datetime_format: datetime format
         :return: Pandas DataFrame
         """
-        df[casted_col_name] = self._vectorized_cast_str_to_datetime(df[datetime_str_col_name], datetime_format)
+        df[casted_col_name] = self._vectorized_cast_str_to_datetime(
+            df[datetime_str_col_name],
+            datetime_format)
         return df

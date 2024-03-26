@@ -10,7 +10,10 @@ class CSVHandler():
     def __init__(self):
         pass
 
-    def create_csv_if_not_exists(self, csv_path: str, field_names: List[str]) -> None:
+    def create_csv_if_not_exists(self,
+                                 csv_path: str,
+                                 field_names: List[str]
+                                 ) -> None:
         """
         Create a csv file with the given field names if it does not exist.
         :param csv_path: Path to the csv file.
