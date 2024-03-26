@@ -1,6 +1,6 @@
 unittest:
 	PYTHONPATH=. python -m unittest
-pytest:
+test:
 	PYTHONPATH=. poetry run pytest
 check:
 	PYTHONPATH=. flake8 pypper
