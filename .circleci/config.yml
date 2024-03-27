@@ -4,35 +4,47 @@ version: 2.1
 orbs:
   python: circleci/python@2
 jobs:
-  test-python:
-    # Install dependencies and run tests
+  checkout:
     docker:
       - image: cimg/python:3.9
     steps:
       - checkout
+  install-packages:
+    docker:
+      - image: cimg/python:3.9
+    steps:
+      - python/install-packages:
+          pkg-manager: poetry
+  test:
+    docker:
+      - image: cimg/python:3.9
+    steps:
       - python/install-packages:
           pkg-manager: poetry
       - run:
           name: Run tests
-          command: PYTHONPATH=. poetry run pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
+          command: make test
       - store_test_results:
           path: junit.xml
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
+  check:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/python:3.9
     steps:
-      # Replace this with steps to deploy to users
+      - python/install-packages:
+          pkg-manager: poetry
       - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          name: Check code style, type hints, and linting
+          command: make check
 workflows:
   build-and-test:
     jobs:
-      - test-python
+      - checkout
+      - install-packages
+      - check
+      - test
       - deploy:
           requires:
-            - test-python
+            - test
           filters:
             branches:
               only:
