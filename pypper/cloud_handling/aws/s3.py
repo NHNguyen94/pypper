@@ -1,5 +1,5 @@
 import os
-from typing import List
+from typing import List, Optional
 
 import boto3
 import dotenv
@@ -8,13 +8,23 @@ dotenv.load_dotenv()
 
 
 class S3Client:
-    def __init__(self):
+    def __init__(
+        self, access_key: Optional[str] = None, secret_key: Optional[str] = None
+    ):
         """
         Initialize the AWS S3 client.
         """
+        if access_key is None:
+            self.access_key = os.getenv("AWS_ACCESS_KEY_ID")
+        else:
+            self.access_key = access_key
+        if secret_key is None:
+            self.secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+        else:
+            self.secret_key = secret_key
         self.session = boto3.Session(
-            aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
-            aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+            aws_access_key_id=self.access_key,
+            aws_secret_access_key=self.secret_key,
         )
 
     def get_file_names(self, bucket_name: str, file_prefix: str) -> List:
