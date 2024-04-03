@@ -25,7 +25,7 @@ google = "^3.0.0"
 include = "^0.2.2"
 gcloud = "^0.18.3"
 gcloud-aio-auth = "^5.2.2"
-flake8 = "^7.0.0"
+ruff = "^0.3.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
