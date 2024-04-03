@@ -4,3 +4,11 @@ from pypper.data_processing.datetime.datetime_processing import DateTimeProcesso
 from pypper.data_processing.nlp.tokenizing import Tokenizer
 from pypper.data_processing.tabular.df_processing import DFProcessor
 from pypper.data_processing.text.translation import Translator
+
+__all__ = [
+    "SpeechProcessor",
+    "DateTimeProcessor",
+    "Tokenizer",
+    "DFProcessor",
+    "Translator",
+]
