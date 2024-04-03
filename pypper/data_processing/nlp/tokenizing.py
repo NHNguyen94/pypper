@@ -5,10 +5,11 @@ import tiktoken as tk
 from pypper.utils.enums import TokenizerConfigs
 
 
-class Tokenizer():
+class Tokenizer:
     """
     A class to tokenize text.
     """
+
     def __init__(self, encoding_name: Optional[str] = None):
         """
         Initialize the Tokenizer object.

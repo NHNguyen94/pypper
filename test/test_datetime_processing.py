@@ -11,7 +11,9 @@ class TestDateTimeProcessor(TestCase):
         datetime_processor = DateTimeProcessor()
         date_str = "2021-01-01 12:00:00"
         datetime_format = "%Y-%m-%d %H:%M:%S"
-        datetime_obj = datetime_processor.cast_str_to_datetime(date_str=date_str, datetime_format=datetime_format)
+        datetime_obj = datetime_processor.cast_str_to_datetime(
+            date_str=date_str, datetime_format=datetime_format
+        )
         print(datetime_obj)
         self.assertEqual(datetime_obj.year, 2021)
         self.assertEqual(datetime_obj.month, 1)
@@ -25,10 +27,12 @@ class TestDateTimeProcessor(TestCase):
         datetime_processor = DateTimeProcessor()
         df = pd.DataFrame({"date_str": ["2021-01-01 12:00:00", "2021-01-02 12:00:00"]})
         datetime_format = "%Y-%m-%d %H:%M:%S"
-        df = datetime_processor.cast_string_to_datetime_in_df(df=df,
-                                                              datetime_str_col_name="date_str",
-                                                              casted_col_name="date_time",
-                                                              datetime_format=datetime_format)
+        df = datetime_processor.cast_string_to_datetime_in_df(
+            df=df,
+            datetime_str_col_name="date_str",
+            casted_col_name="date_time",
+            datetime_format=datetime_format,
+        )
         print(df)
         print(df.info())
         self.assertEqual(df["date_time"].dtypes, "datetime64[ns]")

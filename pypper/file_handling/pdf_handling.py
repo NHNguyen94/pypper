@@ -5,7 +5,7 @@ from pypdf import PdfReader
 from pypper.utils.enums import PDFDocumentConfigs
 
 
-class PDFHandler():
+class PDFHandler:
     """
     A class to read PDF files
     """
@@ -47,11 +47,9 @@ class PDFHandler():
         """
         return pdf_reader.page_labels[page_number]
 
-    def _generate_document(self,
-                           page_number: int,
-                           page_label: str,
-                           page_text: str
-                           ) -> Dict:
+    def _generate_document(
+        self, page_number: int, page_label: str, page_text: str
+    ) -> Dict:
         """
         Generate a document
         :param page_number: int: The page number
@@ -60,14 +58,16 @@ class PDFHandler():
         :return: Dict:
             A dictionary containing the page number, page label, and page text
         """
-        return {self.configs.PAGE: page_number,
-                self.configs.PAGE_LABEL: page_label,
-                self.configs.PAGE_TEXT: page_text,
-                }
+        return {
+            self.configs.PAGE: page_number,
+            self.configs.PAGE_LABEL: page_label,
+            self.configs.PAGE_TEXT: page_text,
+        }
 
-    def load_single_pdf_file(self,
-                             file_path: str,
-                             ) -> List[Dict]:
+    def load_single_pdf_file(
+        self,
+        file_path: str,
+    ) -> List[Dict]:
         """
         Load the data from a PDF file
         :param file_path: str: The path to the PDF file

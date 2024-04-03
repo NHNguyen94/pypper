@@ -2,7 +2,7 @@ import os
 import shutil
 
 
-class FileSystemHandler():
+class FileSystemHandler:
     """
     A class to handle file system operations
     """

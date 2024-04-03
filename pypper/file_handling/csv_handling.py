@@ -3,17 +3,15 @@ import os
 from typing import Dict, List
 
 
-class CSVHandler():
+class CSVHandler:
     """
     A class to handle CSV files
     """
+
     def __init__(self):
         pass
 
-    def create_csv_if_not_exists(self,
-                                 csv_path: str,
-                                 field_names: List[str]
-                                 ) -> None:
+    def create_csv_if_not_exists(self, csv_path: str, field_names: List[str]) -> None:
         """
         Create a csv file with the given field names if it does not exist.
         :param csv_path: Path to the csv file.
@@ -21,7 +19,7 @@ class CSVHandler():
         :return: None
         """
         if not os.path.exists(csv_path):
-            with open(csv_path, 'w', newline='') as csvfile:
+            with open(csv_path, "w", newline="") as csvfile:
                 writer = csv.DictWriter(csvfile, fieldnames=field_names)
                 writer.writeheader()
 
@@ -32,7 +30,7 @@ class CSVHandler():
         :param data: Data to append.
         :return: None
         """
-        with open(file_path, 'a', newline='') as csvfile:
+        with open(file_path, "a", newline="") as csvfile:
             fieldnames = data.keys()
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow(data)

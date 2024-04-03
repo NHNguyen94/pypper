@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-class DFProcessor():
+class DFProcessor:
     """
     A class to process dataframes
     """
@@ -10,10 +10,7 @@ class DFProcessor():
         pass
 
     @staticmethod
-    def drop_outliers(df: pd.DataFrame,
-                      column: str,
-                      threshold: float
-                      ) -> pd.DataFrame:
+    def drop_outliers(df: pd.DataFrame, column: str, threshold: float) -> pd.DataFrame:
         """
         Drop outliers in a dataframe.
         :param df: The dataframe.

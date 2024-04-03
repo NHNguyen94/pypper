@@ -19,14 +19,15 @@ class ImageCrawler(BaseCrawler):
         self.csv_handler = CSVHandler()
         self.configs = ImageCrawlingConfigs()
 
-    def fetch_one(self,
-                  url: str,
-                  substring_condition: List[str],
-                  driver: webdriver.Chrome = webdriver.Chrome(),
-                  endswith_condition: Optional[Tuple[str, ...]] = None,
-                  startswith_condition: Optional[Tuple[str, ...]] = None,
-                  driver_wait_time: Optional[int] = None
-                  ) -> List[str]:
+    def fetch_one(
+        self,
+        url: str,
+        substring_condition: List[str],
+        driver: webdriver.Chrome = webdriver.Chrome(),
+        endswith_condition: Optional[Tuple[str, ...]] = None,
+        startswith_condition: Optional[Tuple[str, ...]] = None,
+        driver_wait_time: Optional[int] = None,
+    ) -> List[str]:
         """
         Fetch image urls from a given url.
         :param url: The url to fetch image urls from.
@@ -56,12 +57,14 @@ class ImageCrawler(BaseCrawler):
             soup = BeautifulSoup(driver.page_source, self.configs.HTML_PARSER)
             image_urls = []
             for img in soup.findAll(self.configs.IMG_TAG):
-                if (img[self.configs.SRC_ATTR]
-                        .endswith(endswith_condition)
-                        and img[self.configs.SRC_ATTR]
-                        .startswith(startswith_condition)
-                        and any(substring in img[self.configs.SRC_ATTR]
-                                for substring in substring_condition)):
+                if (
+                    img[self.configs.SRC_ATTR].endswith(endswith_condition)
+                    and img[self.configs.SRC_ATTR].startswith(startswith_condition)
+                    and any(
+                        substring in img[self.configs.SRC_ATTR]
+                        for substring in substring_condition
+                    )
+                ):
                     image_url = img[self.configs.SRC_ATTR]
                     print(f"Found image url: {image_url}")
                     image_urls.append(image_url)
@@ -70,18 +73,18 @@ class ImageCrawler(BaseCrawler):
             print(f"There is an error when getting image: {e}")
             return []
 
-    def fetch_all_and_save(self,
-                           url_list: List[str],
-                           output_csv_file_path: str,
-                           substring_condition: List[str],
-                           driver: webdriver.Chrome = webdriver.Chrome(),
-                           image_url_col_name: Optional[str] = "IMAGE_URL",
-                           endswith_cond: Optional[Tuple[str, ...]] = None,
-                           startswith_cond: Optional[Tuple[str, ...]] = None,
-                           driver_wait_time: Optional[int] = None,
-                           sleep_time: Optional[float] = None
-                           ) -> None:
-
+    def fetch_all_and_save(
+        self,
+        url_list: List[str],
+        output_csv_file_path: str,
+        substring_condition: List[str],
+        driver: webdriver.Chrome = webdriver.Chrome(),
+        image_url_col_name: Optional[str] = "IMAGE_URL",
+        endswith_cond: Optional[Tuple[str, ...]] = None,
+        startswith_cond: Optional[Tuple[str, ...]] = None,
+        driver_wait_time: Optional[int] = None,
+        sleep_time: Optional[float] = None,
+    ) -> None:
         """
         Fetch image urls from a list of urls and save to a csv file.
         :param driver:
@@ -108,8 +111,7 @@ class ImageCrawler(BaseCrawler):
             sleep_time = self.configs.SLEEP_TIME
 
         self.csv_handler.create_csv_if_not_exists(
-            csv_path=output_csv_file_path,
-            field_names=["id", image_url_col_name]
+            csv_path=output_csv_file_path, field_names=["id", image_url_col_name]
         )
 
         i = 0
@@ -120,14 +122,12 @@ class ImageCrawler(BaseCrawler):
                 endswith_condition=endswith_cond,
                 startswith_condition=startswith_cond,
                 substring_condition=substring_condition,
-                driver_wait_time=driver_wait_time
+                driver_wait_time=driver_wait_time,
             )
             for image_url in image_urls:
                 self.csv_handler.append_to_csv(
                     file_path=output_csv_file_path,
-                    data={"id": i,
-                          image_url_col_name: image_url
-                          }
+                    data={"id": i, image_url_col_name: image_url},
                 )
             i += 1
             time.sleep(sleep_time)

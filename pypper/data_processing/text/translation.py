@@ -7,16 +7,17 @@ import translators as ts
 from pypper.utils.enums import TranlsationConfigs
 
 
-class Translator():
+class Translator:
     """
     A class to translate text
     """
 
-    def __init__(self,
-                 from_language: Optional[str] = None,
-                 to_language: Optional[str] = None,
-                 translator: Optional[str] = None
-                 ):
+    def __init__(
+        self,
+        from_language: Optional[str] = None,
+        to_language: Optional[str] = None,
+        translator: Optional[str] = None,
+    ):
         """
         Initialize the Translator object
         :param from_language:
@@ -41,10 +42,9 @@ class Translator():
         else:
             self.to_language = to_language
 
-    def translate_text(self,
-                       text: str,
-                       returned_text_if_failed: Optional[str] = ""
-                       ) -> str:
+    def translate_text(
+        self, text: str, returned_text_if_failed: Optional[str] = ""
+    ) -> str:
         """
         Translate text
         :param text: The text to translate
@@ -53,23 +53,25 @@ class Translator():
         :return: str: The translated text
         """
         try:
-            return ts.translate_text(query_text=text,
-                                     from_language=self.from_language,
-                                     to_language=self.to_language,
-                                     translator=self.translator
-                                     )
+            return ts.translate_text(
+                query_text=text,
+                from_language=self.from_language,
+                to_language=self.to_language,
+                translator=self.translator,
+            )
         except Exception as e:
             print(f"Failed to translate text: {e}")
             return returned_text_if_failed
 
-    def translate_in_df(self,
-                        df: pd.DataFrame,
-                        column_to_translate: str,
-                        column_to_store: str,
-                        stop_index: Optional[int] = None,
-                        sleep_second: Optional[int] = None,
-                        returned_text_if_failed: Optional[str] = ""
-                        ):
+    def translate_in_df(
+        self,
+        df: pd.DataFrame,
+        column_to_translate: str,
+        column_to_store: str,
+        stop_index: Optional[int] = None,
+        sleep_second: Optional[int] = None,
+        returned_text_if_failed: Optional[str] = "",
+    ):
         """
         Translate text in a DataFrame
         :param df:
@@ -92,11 +94,9 @@ class Translator():
             sleep_second = self.configs.SLEEP_SECOND
         n = 0
         for row in df[column_to_translate]:
-            df[column_to_store] = \
-                self.translate_text(
-                    text=row,
-                    returned_text_if_failed=returned_text_if_failed
-                )
+            df[column_to_store] = self.translate_text(
+                text=row, returned_text_if_failed=returned_text_if_failed
+            )
             n += 1
             time.sleep(sleep_second)
             if n > stop_index:

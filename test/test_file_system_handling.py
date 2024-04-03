@@ -10,8 +10,9 @@ class TestFileSystemHandler(TestCase):
         # Create a folder
         file_system_handler.create_folder_path(folder_path=folder_path)
         # Check if the folder is created
-        self.assertTrue(file_system_handler.check_folder_existence(folder_path=folder_path))
-
+        self.assertTrue(
+            file_system_handler.check_folder_existence(folder_path=folder_path)
+        )
 
     def test_delete_folder_path(self):
         print("Test function delete_folder_path")
@@ -20,4 +21,6 @@ class TestFileSystemHandler(TestCase):
         # Delete the folder
         file_system_handler.delete_not_empty_folder(folder_path=folder_path)
         # Check if the folder is deleted
-        self.assertFalse(file_system_handler.check_folder_existence(folder_path=folder_path))
+        self.assertFalse(
+            file_system_handler.check_folder_existence(folder_path=folder_path)
+        )

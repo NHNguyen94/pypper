@@ -1,10 +1,10 @@
-class PDFDocumentConfigs():
+class PDFDocumentConfigs:
     PAGE = "page"
     PAGE_LABEL = "page_label"
     PAGE_TEXT = "page_text"
 
 
-class ImageCrawlingConfigs():
+class ImageCrawlingConfigs:
     HTML_PARSER = "html.parser"
     IMG_TAG = "img"
     SRC_ATTR = "pypper"
@@ -14,7 +14,7 @@ class ImageCrawlingConfigs():
     STARTSWITH_CONDITION = ("https", "http")
 
 
-class TranlsationConfigs():
+class TranlsationConfigs:
     DEFAULT_TRANSLATOR = "google"
     DEFAULT_FROM_LANGUAGE = "auto"
     DEFAULT_TO_LANGUAGE = "en"
@@ -22,11 +22,11 @@ class TranlsationConfigs():
     RETURNED_TEXT_IF_FAILED = ""
 
 
-class SpeechProcessingConfigs():
+class SpeechProcessingConfigs:
     DEFAULT_MODEL = "large-v2"
     DEFAULT_DEVICE = "cpu"
     DEFAUL_COMPUTE_TYPE = "fp16"
 
 
-class TokenizerConfigs():
+class TokenizerConfigs:
     DEFAULT_ENCODING = "cl100k_base"
