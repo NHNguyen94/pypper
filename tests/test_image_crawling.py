@@ -1,6 +1,6 @@
 # from unittest import TestCase
 #
-# from pypper.data_crawling.image_crawler import ImageCrawler
+# from src.data_crawling.image_crawler import ImageCrawler
 #
 #
 # class TestImageCrawler(TestCase):
@@ -14,5 +14,5 @@
 #         crawler.fetch_all_and_save(url_list=url_list,
 #                                    substring_condition=["pokemon"],
 #                                    endswith_condition=("vi", "png", "jpg"),
-#                                    output_csv_file_path="test/output_for_tests/test_images.csv",
+#                                    output_csv_file_path="tests/output_for_tests/test_images.csv",
 #                                    )

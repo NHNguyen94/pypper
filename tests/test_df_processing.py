@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-from pypper.data_processing.tabular.df_processing import DFProcessor
+from src.data_processing.tabular.df_processing import DFProcessor
 
 
 class TestDFProcessor(TestCase):

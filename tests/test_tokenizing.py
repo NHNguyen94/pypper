@@ -1,14 +1,14 @@
 from typing import List
 from unittest import TestCase
 
-from pypper.data_processing.nlp.tokenizing import Tokenizer
+from src.data_processing.nlp.tokenizing import Tokenizer
 
 
 class TestTokenizer(TestCase):
     def test_encode_text(self):
         print("Test function encode_text")
         tokenizer = Tokenizer()
-        text = "This is a test sentence."
+        text = "This is a tests sentence."
         tokens = tokenizer.encode_text(text)
         print(tokens)
         self.assertGreater(len(tokens), 1)

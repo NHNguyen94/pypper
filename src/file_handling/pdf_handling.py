@@ -2,7 +2,7 @@ from typing import List, Dict, BinaryIO
 
 from pypdf import PdfReader
 
-from pypper.utils.enums import PDFDocumentConfigs
+from src.utils.enums import PDFDocumentConfigs
 
 
 class PDFHandler:

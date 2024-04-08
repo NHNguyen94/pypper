@@ -7,7 +7,7 @@ class PDFDocumentConfigs:
 class ImageCrawlingConfigs:
     HTML_PARSER = "html.parser"
     IMG_TAG = "img"
-    SRC_ATTR = "pypper"
+    SRC_ATTR = "src"
     DRIVER_WAIT_TIME = 5
     SLEEP_TIME = 1
     ENDSWITH_CONDITION = (".jpg", ".png", ".jpeg")

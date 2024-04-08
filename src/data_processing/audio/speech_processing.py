@@ -3,7 +3,7 @@ from typing import Optional, Dict
 
 from faster_whisper import WhisperModel
 
-from pypper.utils.enums import SpeechProcessingConfigs
+from src.utils.enums import SpeechProcessingConfigs
 
 
 class SpeechProcessor:
