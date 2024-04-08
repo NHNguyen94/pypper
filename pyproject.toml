@@ -4,7 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["nguyen <nguyenhainguyen2606@gmail.com>"]
 readme = "README.md"
-urls = {homepage = "https://nhnguyen.online/", repository = "https://github.com/NHNguyen94/pypper", documentation = ""}
+homepage = "https://nhnguyen.online/"
+repository = "https://github.com/NHNguyen94/pypper"
+documentation = "https://nhnguyen.online/"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12"
