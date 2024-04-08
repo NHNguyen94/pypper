@@ -2,7 +2,7 @@ from typing import Optional, List
 
 import tiktoken as tk
 
-from src.utils.enums import TokenizerConfigs
+from pypper.utils.enums import TokenizerConfigs
 
 
 class Tokenizer:

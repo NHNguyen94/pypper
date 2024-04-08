@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "src"
+name = "pypper"
 version = "0.1.0"
 description = ""
 authors = ["nguyen <nguyenhainguyen2606@gmail.com>"]

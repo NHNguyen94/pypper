@@ -1,5 +1,5 @@
 from unittest import TestCase
-from src.file_handling.file_system_handling import FileSystemHandler
+from pypper.file_handling.file_system_handling import FileSystemHandler
 
 
 class TestFileSystemHandler(TestCase):

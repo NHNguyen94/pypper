@@ -4,9 +4,9 @@ from typing import List, Tuple, Optional
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-from src.data_crawling.base_crawling import BaseCrawler
-from src.file_handling.csv_handling import CSVHandler
-from src.utils.enums import ImageCrawlingConfigs
+from pypper.data_crawling.base_crawling import BaseCrawler
+from pypper.file_handling.csv_handling import CSVHandler
+from pypper.utils.enums import ImageCrawlingConfigs
 
 
 class ImageCrawler(BaseCrawler):
